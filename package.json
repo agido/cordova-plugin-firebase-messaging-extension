@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kohofinancial/cordova-plugin-firebase-messaging-extension.git"
+    "url": "git+https://github.com/agido/cordova-plugin-firebase-messaging-extension.git"
   },
   "keywords": [
     "cordova",
