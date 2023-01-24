@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.urbanairship.push.fcm.AirshipFirebaseIntegration;
 
 import java.util.Map;
 
@@ -26,7 +25,6 @@ public class FirebaseMessagingExtensionService extends FirebaseMessagingService 
     public void onNewToken(String token) {
         Log.d(TAG, "onNewToken");
         intercomPushClient.sendTokenToIntercom(getApplication(), token);
-        AirshipFirebaseIntegration.processNewToken(getApplicationContext());
     }
 
     @SuppressLint("LongLogTag")
@@ -36,8 +34,6 @@ public class FirebaseMessagingExtensionService extends FirebaseMessagingService 
         Map message = remoteMessage.getData();
         if (intercomPushClient.isIntercomPush(message)) {
             intercomPushClient.handlePush(getApplication(), message);
-        } else {
-            AirshipFirebaseIntegration.processMessageSync(getApplicationContext(), remoteMessage);
         }
     }
 }
