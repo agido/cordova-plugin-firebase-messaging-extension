@@ -18,6 +18,7 @@ public class FirebaseMessagingExtensionService extends FirebaseMessagingService 
     @Override
     public void onCreate() {
         Log.d(TAG, "onCreate");
+        super.onCreate();
     }
 
     @SuppressLint("LongLogTag")
@@ -25,6 +26,7 @@ public class FirebaseMessagingExtensionService extends FirebaseMessagingService 
     public void onNewToken(String token) {
         Log.d(TAG, "onNewToken");
         intercomPushClient.sendTokenToIntercom(getApplication(), token);
+        super.onNewToken(token);
     }
 
     @SuppressLint("LongLogTag")
@@ -34,6 +36,8 @@ public class FirebaseMessagingExtensionService extends FirebaseMessagingService 
         Map message = remoteMessage.getData();
         if (intercomPushClient.isIntercomPush(message)) {
             intercomPushClient.handlePush(getApplication(), message);
+        } else {
+            super.onMessageReceived(remoteMessage);
         }
     }
 }
