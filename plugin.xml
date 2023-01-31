@@ -15,7 +15,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
     <platform name="android">
         <preference name="FIREBASE_CORE_VERSION" default="16.0.8"/>
-        <preference name="FIREBASE_MESSAGING_VERSION" default="20.+"/>
+        <preference name="FIREBASE_MESSAGING_VERSION" default="23.+"/>
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="FirebaseMessagingExtension">
