@@ -14,8 +14,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     </engines>
 
     <platform name="android">
-        <preference name="FIREBASE_CORE_VERSION" default="16.0.8"/>
-        <preference name="FIREBASE_MESSAGING_VERSION" default="23.+"/>
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="FirebaseMessagingExtension">
@@ -31,11 +29,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 </intent-filter>
             </service>
         </config-file>
-
-        <dependency id="cordova-plugin-intercom" version="^12.1.0"/>
-
-        <framework src="com.google.firebase:firebase-core:$FIREBASE_CORE_VERSION" />
-        <framework src="com.google.firebase:firebase-messaging:$FIREBASE_MESSAGING_VERSION" />
 
         <source-file src="src/android/FirebaseMessagingExtensionService.java"
             target-dir="src/ca/koho/cordova/plugin/firebase/messaging" />
